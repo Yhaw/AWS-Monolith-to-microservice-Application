@@ -34,4 +34,4 @@ after_success:
   - docker push yhaw08/udagram-api-feed:v1
   - docker push yhaw08/udagram-api-user:v1
   - docker push yhaw08/udagram-frontend:v1
-  - docker push yhaw08/reverseproxy:v1
+  - docker push $DOCKER_USERNAME/reverseproxy:v1
