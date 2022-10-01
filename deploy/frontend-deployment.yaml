@@ -12,11 +12,12 @@ spec:
   template:
     metadata:
       labels:
-        service: frontend
+        service: frontend 
+        api: external
     spec:
       containers:
       - name: frontend
-        image: yhaw08/udagram-frontend:v3
+        image: yhaw08/udagram-frontend:v1
         imagePullPolicy: Always
         ports:
           - containerPort: 80

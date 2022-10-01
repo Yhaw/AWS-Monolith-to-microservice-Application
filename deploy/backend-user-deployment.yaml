@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend-user
-        image: yhaw08/udagram-api-user:v2
+        image: yhaw08/udagram-api-user:v1
         imagePullPolicy: Always
         ports:
           - containerPort: 80
@@ -65,22 +65,13 @@ spec:
               key: POSTGRES_HOST
         - name: POSTGRES_PASSWORD
           valueFrom:
-            configMapKeyRef:
-              name: example-configmap
+            secretKeyRef:
+              name: mysecret
               key: POSTGRES_PASSWORD
         - name: POSTGRES_USERNAME
           valueFrom:
-            configMapKeyRef:
-              name: example-configmap
+            secretKeyRef:
+              name: mysecret
               key: POSTGRES_USERNAME
-        - name: ACCESS_KEY_ID
-          valueFrom:
-            configMapKeyRef:
-              name: example-configmap
-              key: ACCESS_KEY_ID
-        - name: AWS_SECRET_ACCESS_KEY
-          valueFrom:
-            configMapKeyRef:
-              name: example-configmap
-              key: AWS_SECRET_ACCESS_KEY
+      restartPolicy: Always 
        

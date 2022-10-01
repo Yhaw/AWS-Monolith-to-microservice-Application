@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend-feed
-        image: yhaw08/udagram-api-feed:v2
+        image: yhaw08/udagram-api-feed:v1
         imagePullPolicy: Always
         ports:
           - containerPort: 80
@@ -63,23 +63,26 @@ spec:
             configMapKeyRef:
               name: example-configmap
               key: POSTGRES_HOST
+
         - name: POSTGRES_PASSWORD
           valueFrom:
-            configMapKeyRef:
-              name: example-configmap
+            secretKeyRef:
+              name: mysecret
               key: POSTGRES_PASSWORD
+
         - name: POSTGRES_USERNAME
           valueFrom:
-            configMapKeyRef:
-              name: example-configmap
+            secretKeyRef:
+              name: mysecret
               key: POSTGRES_USERNAME
-        - name: ACCESS_KEY_ID
-          valueFrom:
-            configMapKeyRef:
-              name: example-configmap
-              key: ACCESS_KEY_ID
-        - name: AWS_SECRET_ACCESS_KEY
-          valueFrom:
-            configMapKeyRef:
-              name: example-configmap
-              key: AWS_SECRET_ACCESS_KEY
+
+        volumeMounts:
+        - name: awssecret
+          mountPath: "/root/.aws/"
+          readOnly: true        
+        restartPolicy: Always
+        volumes:
+        - name: awssecret
+          secret:
+            secretName: awssecret
+         
