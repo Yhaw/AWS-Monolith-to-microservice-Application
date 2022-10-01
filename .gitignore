@@ -1,1 +1,10 @@
 set_env.sh
+env-configmap.yaml
+env-secret.yaml
+aws-secret.yaml
+.set_env.sh.swp
+.env-configmap.yaml.swp
+.env-secret.yaml.swp
+.aws-secret.yaml.swp
+.docker-compose-build.yaml.swp
+.docker-compose.yaml.swp
