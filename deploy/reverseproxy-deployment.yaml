@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: reverseproxy
-        image: yhaw08/reverseproxy:v1
+        image: yhaw08/reverseproxy:v2
         ports:
           - containerPort: 8080   
