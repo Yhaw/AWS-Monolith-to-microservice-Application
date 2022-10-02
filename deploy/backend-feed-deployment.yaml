@@ -28,8 +28,8 @@ spec:
         volumeMounts:
           - mountPath: "/root/.aws/"
             name: awssecret
-    volume:
-      - name: awssecret
-        configMap:
-          name: awssecret
+      volumes:
+        - name: awssecret
+          configMap:
+            name: awssecret
               

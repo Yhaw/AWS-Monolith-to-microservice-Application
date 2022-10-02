@@ -33,5 +33,5 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push yhaw08/udagram-api-feed:v1
   - docker push yhaw08/udagram-api-user:v1
-  - docker push yhaw08/udagram-frontend:v2
+  - docker push yhaw08/udagram-frontend:v3
   - docker push $DOCKER_USERNAME/reverseproxy:v1
