@@ -25,6 +25,8 @@ spec:
               name: example-configmap
           - secretRef:
               name: mysecret
+          - secretRef:
+              name: mysecret1
         volumeMounts:
           - mountPath: "/root/.aws/"
             name: awssecret
